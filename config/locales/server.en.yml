@@ -1,5 +1,5 @@
 en:
-  site_settings: 
+  site_settings:
     adsense_publisher_code: 'Your AdSense publisher code'
     adsense_show_topiclist_top: 'Show ads on top of the topic list'
     adsense_ad_slot_topiclist_top: 'Ad slot ID for top of the topic list (728x90)'
@@ -11,3 +11,5 @@ en:
     adsense_ad_slot_topic_bottom: 'Ad slot ID for bottom of the topic'
     adsense_ad_slot_topic_bottom_mobile: 'Mobile ad slot ID for bottom of the topic'
     adsense_through_trust_level: 'Show ads to users through trust level (0 = to not logged in users only ... 4 = to all users)'
+    adsense_through_badge: 'Hides ads to users with this badge. '
+

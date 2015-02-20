@@ -4,7 +4,7 @@
 # author: DiscourseHosting.com
 # Supported Discourse version: v1.2
 
-register_asset "javascripts/adsense.js"
+register_asset "javascripts/initializers/adsense_plugin.js.es6"
 register_asset "javascripts/discourse/templates/discovery.hbs"
 register_asset "javascripts/discourse/templates/topic.hbs"
 

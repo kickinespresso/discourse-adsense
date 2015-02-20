@@ -32,3 +32,7 @@ adsense_plugin:
   adsense_through_trust_level:
     client: true
     default: 2
+  adsense_through_badge:
+    client: true
+    default: ''
+
