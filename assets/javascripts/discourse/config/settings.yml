@@ -1,0 +1,38 @@
+adsense_plugin:
+  adsense_publisher_code:
+    client: true
+    default: ''
+  adsense_show_topiclist_top:
+    client: true
+    default: false
+  adsense_ad_slot_topiclist_top:
+    client: true
+    default: ''
+  adsense_ad_slot_topiclist_top_mobile:
+    client: true
+    default: ''
+  adsense_show_topic_top:
+    client: true
+    default: false
+  adsense_ad_slot_topic_top:
+    client: true
+    default: ''
+  adsense_ad_slot_topic_top_mobile:
+    client: true
+    default: ''
+  adsense_show_topic_bottom:
+    client: true
+    default: false
+  adsense_ad_slot_topic_bottom:
+    client: true
+    default: ''
+  adsense_ad_slot_topic_bottom_mobile:
+    client: true
+    default: ''
+  adsense_through_trust_level:
+    client: true
+    default: 2
+  adsense_through_badge:
+    client: true
+    default: ''
+
