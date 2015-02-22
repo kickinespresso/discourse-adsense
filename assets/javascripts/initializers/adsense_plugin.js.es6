@@ -3,12 +3,32 @@
 **/
 
 import { decorateCooked } from 'discourse/lib/plugin-api';
-
+import TopicController from 'discourse/controllers/topic';
 
 export default {
   name: "adsense_plugin",
   initialize: function(container, application) {
 
+    Discourse.SiteSettings.ShowAds = true;
+    var currentUser = Discourse.User.current();
+
+    Discourse.User.reopen({
+      getUserBadges: function() {
+        return Discourse.UserBadge.findByUsername(this.username);
+      }
+    });
+
+    if (currentUser ) {
+     Discourse.User.findByUsername(Discourse.User.current().username).then(function(result) {
+          return result.getUserBadges();
+        }).then(function(result) {
+            result.forEach(function(entry) {
+              if (entry.badge.name == Discourse.SiteSettings.adsense_through_badge){
+                    Discourse.SiteSettings.ShowAds = false;
+              }
+            });
+        });
+    }
   }
 };
 
@@ -20,19 +40,8 @@ export default {
         return "";
     }
 
-    if ((currentUser)) {
-      var adSenseEnabled =  Discourse.UserBadge.findByUsername(Discourse.User.current().username).then(function(result) {
-      result.forEach(function(entry) {
-          if (entry.badge.name == Discourse.SiteSettings.adsense_through_badge){
-            return false;
-          }
-        }
-       );
-       return true;
-      });
-      if (adSenseEnabled){
-        return "";
-      }
+    if ((currentUser) && !Discourse.SiteSettings.ShowAds){
+       return "";
     }
 
     var position = slotid.replace('_mobile', '');
@@ -88,7 +97,9 @@ export default {
   }
 
   Discourse.PageTracker.current().on('change', function(url) {
-    if('' != Discourse.SiteSettings.adsense_publisher_code) {
+
+    if('' != Discourse.SiteSettings.adsense_publisher_code ) {
+
       __reload_gads();
     }
   });
